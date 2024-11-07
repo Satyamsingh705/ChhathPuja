@@ -1,16 +1,30 @@
 .image-container {
-    display: flex;               /* Make the container a flexbox */
-    justify-content: space-around; /* Distribute images evenly across the row */
-    gap: 20%;                    /* Space between images */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
+.image-container .card {
+    flex: 0 1 300px;
+    transition: transform 0.3s ease;
+}
+
+.image-container .card:hover {
+    transform: translateY(-5px);
+}
 
 .image-container img {
-    width: 200px;                /* Set the width of the images */
-    height: 200px;               /* Set the height of the images */
+    height: 200px;
+    object-fit: cover;
 }
 
-.image-item p {
-    margin-top: 5px;             /* Add space between the image and the text */
-    font-size: 14px;             /* Set font size for text */
+@media (max-width: 768px) {
+    .image-container {
+        gap: 1rem;
+    }
+    
+    .image-container .card {
+        flex: 0 1 100%;
+    }
 }

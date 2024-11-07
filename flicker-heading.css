@@ -1,28 +1,113 @@
-/* Define the sliding effect */
+/* Keyframes for sliding animation */
 @keyframes slideEffect {
     0% {
-        transform: translateX(100%); /* Start off-screen to the left */
+        transform: translateX(100%);
     }
     100% {
-        transform: translateX(-100%); /* End off-screen to the right */
+        transform: translateX(-100%);
     }
 }
 
-/* Apply the sliding animation to the entire heading container */
-.sliding-heading {
-    animation: slideEffect 7s linear infinite; /* Apply the slide effect */
-    white-space: nowrap; /* Prevent words from wrapping to the next line */
-    display: flex; /* Display the words in a row */
-    justify-content: center; /* Center the text */
-    overflow: hidden; /* Hide anything that goes off the edge */
-    padding: 5%; /* Optional padding for spacing */
-    font-size: 2.5rem;
-    font-family: 'Arial', sans-serif;
-    color: orange;
-    background-color: darkgreen;
+/* Keyframes for glowing effect */
+@keyframes glowEffect {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 165, 0, 0.7),
+                     0 0 20px rgba(255, 165, 0, 0.5),
+                     0 0 30px rgba(255, 165, 0, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 165, 0, 0.8),
+                     0 0 30px rgba(255, 165, 0, 0.6),
+                     0 0 40px rgba(255, 165, 0, 0.4);
+    }
 }
 
-/* Optional: Style the heading text */
-h2 {
+/* Shine effect animation */
+@keyframes shineEffect {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Main heading styles */
+.sliding-heading {
+    animation: 
+        slideEffect 15s linear infinite,
+        glowEffect 3s ease-in-out infinite;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 1.5rem;
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #FFA500;
+    background: linear-gradient(45deg, #006400, #008000);
+    position: relative;
     margin: 0;
+    letter-spacing: 2px;
+    border-bottom: 4px solid #004d00;
+    text-transform: uppercase;
+}
+
+/* Shine effect overlay */
+.sliding-heading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    background-size: 200% 100%;
+    animation: shineEffect 3s infinite;
+}
+
+/* Emoji styling */
+.sliding-heading span {
+    display: inline-block;
+    margin: 0 0.5rem;
+    transform-origin: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sliding-heading {
+        font-size: 1.8rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sliding-heading {
+        font-size: 1.5rem;
+        padding: 0.8rem;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .sliding-heading {
+        background: #006400;
+        color: #FFE4B5;
+        text-shadow: none;
+    }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .sliding-heading {
+        animation: glowEffect 3s ease-in-out infinite;
+        transform: none;
+    }
 }

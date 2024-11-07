@@ -1,67 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- It's about metadata -->
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Sumit Kumar Sandhu</title>
-  <link rel="stylesheet" href="flicker-heading.css">
-  <link rel="stylesheet" href="flexbox.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumit Kumar Sandhu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="flicker-heading.css">
+    <link rel="stylesheet" href="flexbox.css">
 </head>
 <body>
-<div>
-  <h2 class="sliding-heading">LET'S CELEBRATE CHHATH PUJA TOGETHER 🌞🌾🙏</h2>
-</div>
-<div>
-  <img src="https://media.istockphoto.com/id/860008124/vector/happy-chhath-puja-holiday-background-for-sun-festival-of-india.jpg?s=612x612&w=0&k=20&c=RmqmHw8cdeOFjifkBNGhNZA46w_omlF-tzCyiOJGzLU="
-       style="width: 100%; height: 400px; border:10px solid; border-color: green" alt="Happy chhath puja">
-</div>
-<h1 style="text-align: center; width: 100%; color: green; text-decoration: underline; font-family: sans-serif;">
-  WHY CHHATH PUJA?
-</h1>
-<h4 style="width: 100%; height: 4px; color: rebeccapurple;">
-  Chhath Puja is a beautiful and deeply spiritual festival that celebrates the Sun God (Surya) and Chhathi Maiya...
-</h4>
+    <div class="container-fluid p-0">
+        <header>
+            <h2 class="sliding-heading">LET'S CELEBRATE CHHATH PUJA TOGETHER 🌞🌾🙏</h2>
+        </header>
 
-<!-- Countdown Timer -->
-<div id="countdown" style="text-align: center; font-size: 2em; color: green; margin-top: 20px;"></div>
+        <main class="container my-4">
+            <div class="card shadow-sm mb-4">
+                <img src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSOrBTjqdnkx7szcHHH0wx4wWkoTHEe01ASXVlz0Tca9K0nTCFsLFUQYExnrbWECrLH" 
+                     class="card-img-top img-fluid" 
+                     alt="Happy chhath puja"
+                     style="max-height: 400px; object-fit: cover;">
+            </div>
 
-<!-- Rest of your content -->
-<!-- ... -->
+            <section class="text-center mb-4">
+                <h1 class="text-success mb-3 border-bottom pb-2">WHY CHHATH PUJA?</h1>
+                <div class="card p-4 shadow-sm">
+                    <p class="lead text-primary">
+                        Chhath Puja is a beautiful and deeply spiritual festival that celebrates the Sun God (Surya) and Chhathi Maiya...
+                    </p>
+                </div>
+            </section>
 
-<!-- Countdown Timer Script -->
-<script>
-  // Set the date we're counting down to: today at 5:00 pm
-  var countDownDate = new Date();
-  countDownDate.setHours(17, 0, 0, 0);
+            <div id="countdown" class="alert alert-success text-center h3 shadow-sm"></div>
 
-  // Update the countdown every 1 second
-  var x = setInterval(function() {
-    // Get current date and time
-    var now = new Date().getTime();
+            <div class="image-container mt-4">
+                <!-- Add your gallery images here -->
+                <div class="card">
+                    <img src="https://www.bhaktvatsal.com/public/uploads/1245ac19c4ae555c27fc630a4b6a092a.webp" class="card-img-top" alt="Chhath Puja Image 1">
+                </div>
+                <div class="card">
+                    <img src="https://feeds.abplive.com/onecms/images/uploaded-images/2024/11/06/99fe215f810afb5f37b8c6130c53e8c317308762588061090_original.jpeg?impolicy=abp_cdn&imwidth=320" class="card-img-top" alt="Chhath Puja Image 2">
+                </div>
+                <div class="card">
+                    <img src="https://imgeng.jagran.com/images/2024/11/06/article/image/chhath-puja-2024-day-3-1730882407577.webp" class="card-img-top" alt="Chhath Puja Image 3">
+                </div>
+            </div>
+        </main>
 
-    // Find the distance between now and the countdown time
-    var distance = countDownDate - now;
+        <footer class="bg-dark text-light text-center py-3 mt-5">
+            <p class="mb-0">© 2023 Chhath Puja Celebration</p>
+        </footer>
+    </div>
 
-    // Time calculations for hours, minutes, and seconds
-    var hours = Math.floor((distance / (1000 * 60 * 60)));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Set the date we're counting down to: today at 5:00 pm
+        var countDownDate = new Date();
+        countDownDate.setHours(17, 0, 0, 0);
 
-    // Display the result in the element with id="countdown"
-    document.getElementById("countdown").innerHTML =
-      hours + "h " + minutes + "m " + seconds + "s ";
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
 
-    // If the countdown is over, display a message
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("countdown").innerHTML = "Happy Chhath Puja";
-    }
-  }, 1000);
-</script>
+            var hours = Math.floor((distance / (1000 * 60 * 60)));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML =
+                hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "Happy Chhath Puja! 🎉";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
-
